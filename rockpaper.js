@@ -25,38 +25,62 @@
 //     //   console.log(following)
 //     // }
 var userInput = prompt("Choose rock, paper or scissors.")
-var compOption = ["rock", "paper", "scissor"]
+var compOption = ["rock", "paper", "scissors"]
 
 // alert(userInput)
 
+// officerInfo = (first, last, rank, email) =>  {
+//     //   let fullName = first + " " + last
+//     //   return({ first: first, last: last, fullName: fullName, rank: rank, email: email })
+//     // }
+
 const compAnswer = compOption[Math.floor(Math.random() * compOption.length)];
 
-function myFunction() {
-  alert(compAnswer);  // referencing global foo
+function compThrow() {
+  text = "The computer chose "
+  alert(text + compAnswer);
 }
 
-myFunction(compAnswer)
+compThrow(compAnswer)
 
-// if (hour < 18) {
-//     greeting = "Good day";
-//   } else {
-//     greeting = "Good evening";
-//   }
+
 
 var text;
 
 function winner() {
     if (userInput === compAnswer) {
         text = "You tied!"}
-    else {
-      text = "You lose";
-}
+    else if (userInput == "rock" && compAnswer == "scissors") {
+        text = "You win!"
+    }   
+    else if (userInput == "rock" && compAnswer == "paper") {
+        text = "You lose ... paper covers rock!"   
+    }
+    else if (userInput == "paper" && compAnswer == "scissors") {
+      text = "You lose ... scissors cuts paper!";
+    }
+    else if (userInput == "paper" && compAnswer == "rock") {
+      text = "You win!"
+    }
+    else if (userInput == "scissors" && compAnswer == "rock") {
+        text = "You lose. The rock busts the scissors"
+    }
+    else if (userInput == "scissors" && compAnswer == "paper") {
+        text = "You win! Scissors cut paper!"
+    }
 alert(text);
 }
 
 winner(userInput,compAnswer)
 
-
+function replay() {
+  if yes {
+    function(winner);
+  }
+  if no {
+    exit
+  }
+}
 
 // if rock vs scissors 
 //   winner = rock
