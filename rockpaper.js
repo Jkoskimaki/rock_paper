@@ -11,21 +11,20 @@
 // want to play again?         
 // if yes/no? exit
 
-// function userChoice(choice, { rock, paper, scissors } = {} ) {
-//     //   console.log(likes)
-//     //   console.log(followers)
-//     //   console.log(following)
-//     // }
 
-var userChoice = document.getElementById('user-choice');
+
+//var userChoice = document.getElementById('user-choice');
 var compChoice = document.getElementById('comp-choice');
 
-
+document.getElementById('paper').addEventListener("click", function() {
+  userChoice = "paper";
+  return userChoice;
+})
 
 function userPlay() {
   userChoice = prompt("Choose rock, paper or scissors.")
   text = "You chose "
-  alert(text + userChoice);
+  return text + userChoice;
 }
 
 
@@ -63,8 +62,6 @@ function compPlay() {
     alert(text);
   }
 
-// winner(userChoice,compChoice)
-
 
 function replay() {
   var userInput2 = prompt("Would you like to play again? (yes/no)")
@@ -80,12 +77,11 @@ function replay() {
 }
 
 
-// do {
-//   code block to be executed
-// }
-// while (condition);
-
 userPlay()
 compPlay()
 winner()
 replay()
+
+// document.getElementById("paper").addEventListener("click", function() {
+//   myFunction(p1, p2);
+// });
