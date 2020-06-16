@@ -17,67 +17,75 @@
 //     //   console.log(following)
 //     // }
 
-var userInput = prompt("Choose rock, paper or scissors.")
-var compOption = ["rock", "paper", "scissors"]
-const compAnswer = compOption[Math.floor(Math.random() * compOption.length)];
+var userChoice = document.getElementById('user-choice');
+var compChoice = document.getElementById('comp-choice');
+
 
 
 function userPlay() {
-    text = "You chose "
-    alert(text + userInput);
-  }
+  userChoice = prompt("Choose rock, paper or scissors.")
+  text = "You chose "
+  alert(text + userChoice);
+}
 
-  function compPlay() {
+
+function compPlay() {
+    compSelect = ["rock", "paper", "scissors"]
+    compChoice = compSelect[Math.floor(Math.random() * compSelect.length)];
     text = "The computer chose "
-    alert(text + compAnswer);
+    alert(text + compChoice);
   }
 
-  compPlay(compAnswer)
 
   var text;
 
   function winner() {
-      if (userInput === compAnswer) {
+      if (userChoice === compChoice) {
           text = "You tied!"}
-      else if (userInput == "rock" && compAnswer == "scissors") {
+      else if (userChoice == "rock" && compChoice == "scissors") {
           text = "You win!"
       }   
-      else if (userInput == "rock" && compAnswer == "paper") {
+      else if (userChoice == "rock" && compChoice == "paper") {
           text = "You lose ... paper covers rock!"   
       }
-      else if (userInput == "paper" && compAnswer == "scissors") {
+      else if (userChoice == "paper" && compChoice == "scissors") {
         text = "You lose ... scissors cuts paper!";
       }
-      else if (userInput == "paper" && compAnswer == "rock") {
+      else if (userChoice == "paper" && compChoice == "rock") {
         text = "You win!"
       }
-      else if (userInput == "scissors" && compAnswer == "rock") {
+      else if (userChoice == "scissors" && compChoice == "rock") {
           text = "You lose. The rock busts the scissors"
       }
-      else if (userInput == "scissors" && compAnswer == "paper") {
+      else if (userChoice == "scissors" && compChoice == "paper") {
           text = "You win! Scissors cut paper!"
       }
     alert(text);
   }
 
-winner(userInput,compAnswer)
+// winner(userChoice,compChoice)
 
-var userInput2 = prompt("Would you like to play again? (yes/no)")
 
 function replay() {
+  var userInput2 = prompt("Would you like to play again? (yes/no)")
 
   do {
-      userPlay()
-      compPlay(compAnswer)
-      winner(userInput, compAnswer)
+    userPlay()
+    compPlay()
+    winner()
+    var userInput2 = prompt("Would you like to play again? (yes/no)")
   }  
   while (userInput2 == "yes");
   // window.userInput2
 }
 
-replay(userInput, compAnswer)
 
 // do {
 //   code block to be executed
 // }
 // while (condition);
+
+userPlay()
+compPlay()
+winner()
+replay()
