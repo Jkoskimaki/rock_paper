@@ -12,11 +12,12 @@
 // if yes/no? exit
 
 
-var userChoice = document.getElementById('user-choice');
-var compChoice = document.getElementById('comp-choice');
+var userChoice = document.getElementById('user-choice');  //
+var compChoice = document.getElementById('comp-choice');  //
 var rock = document.getElementById("rock");
 var paper = document.getElementById("paper");
 var scissors = document.getElementById("scissors");
+var text = document.getElementById("results");
 
 let userScore = 0;
 let compScore = 0;
@@ -30,75 +31,66 @@ function compPlay() {
     return compChoice
   }
 
-function userPlay() {
+
   paper.addEventListener("click", function() {
-    userChoice == "paper";
+    userChoice = "paper";
     console.log("paper")
-    //winner(compChoice + userChoice);
+    compPlay()
+    winner(compChoice, userChoice);
   })
 
   rock.addEventListener("click", function() {
-    userChoice == "rock";
+    userChoice = "rock";
     console.log("rock")
-    //winner();
+    compPlay()
+    winner(compChoice, userChoice);
   })
 
   scissors.addEventListener("click", function() {
-    userChoice == "scissors";
+    userChoice = "scissors";
     console.log("scissors")
-    //winner();
+    compPlay()
+    winner(compChoice, userChoice);
   })
-  return userChoice;
-}
-
-userChoice = userPlay()
-
-// userChoice = userPlay()
-
-// var response = 0;
-
-// function doSomething() {
-//     // some code
-//     return 10;
-// }
-// response = doSomething();
-
-// function userPlay() {
-//   //userChoice = prompt("Choose rock, paper or scissors.")
-//   text = "You chose "
-//   return text + userChoice;
-// }
 
 
+  // var element = document.getElementById("id01");
+  // element.innerHTML = "New Heading";
 
-  var text;
+
 
   function winner() {
       if (userChoice === compChoice) {
-          text = "You tied!"}
+          text.innerHTML = "You tied!   " + userScore + ":" + compScore;
+        }
       else if (userChoice == "rock" && compChoice == "scissors") {
         userScore += 1;
-        text = "You win!   " + userScore + ":" + compScore;
+        text.innerHTML = "You win!   " + userScore + ":" + compScore;
+        // document.getElementById("results").innerHTML = "You Win!";
       }   
       else if (userChoice == "rock" && compChoice == "paper") {
         compScore += 1; 
-        text = "You lose ... paper covers rock!   " + userScore + ":" + compScore;
+        text.innerHTML = "You lose ... paper covers rock!   " + userScore + ":" + compScore;
       }
       else if (userChoice == "paper" && compChoice == "scissors") {
         compScore += 1;
-        text = "You lose ... scissors cuts paper!   " + userScore + ":" + compScore;
+        text.innerHTML = "You lose ... scissors cuts paper!   " + userScore + ":" + compScore;
       }
       else if (userChoice == "paper" && compChoice == "rock") {
         userScore += 1;
-        text = "You win!   " + userScore + ":" + compScore;
+        text.innerHTML = "You win!   " + userScore + ":" + compScore;
+        //document.getElementById("results").innerHTML = "You lose. The rock busts the scissors :(";
       }
       else if (userChoice == "scissors" && compChoice == "rock") {
         compScore += 1;
-        text = "You lose. The rock busts the scissors   " + userScore + ":" + compScore;
+        text.innerHTML = "You lose. The rock busts the scissors   " + userScore + ":" + compScore;
+        //document.getElementById("results").innerHTML = "You lose. The rock busts the scissors :(";
       }
       else if (userChoice == "scissors" && compChoice == "paper") {
         userScore += 1;
-        text = "You win! Scissors cut paper!   " + userScore + ":" + compScore;
+        text.innerHTML = "You win! Scissors cut paper!   " + userScore + ":" + compScore;
+        //document.getElementById("results").innerHTML = "You win! Scissors cut paper!";
+
       }
     return text;
   }
@@ -116,6 +108,5 @@ function replay() {
   while (userInput2 == "yes");
 }
 
-compPlay()
-userPlay()
-winner()
+// compPlay()
+// winner()
