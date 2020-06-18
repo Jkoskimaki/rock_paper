@@ -25,8 +25,6 @@ let compScore = 0;
 function compPlay() {
     compSelect = ["rock", "paper", "scissors"]
     compChoice = compSelect[Math.floor(Math.random() * compSelect.length)];
-    // text = "The computer chose "
-    // alert(text + compChoice);
     console.log(compChoice)
     return compChoice
   }
@@ -54,43 +52,33 @@ function compPlay() {
   })
 
 
-  // var element = document.getElementById("id01");
-  // element.innerHTML = "New Heading";
-
-
-
   function winner() {
       if (userChoice === compChoice) {
-          text.innerHTML = "You tied!   " + userScore + ":" + compScore;
+          text.innerHTML = "You tied! <br/>  Both of you played " + userChoice + " <br/>" + userScore + " : " + compScore;
         }
       else if (userChoice == "rock" && compChoice == "scissors") {
         userScore += 1;
-        text.innerHTML = "You win!   " + userScore + ":" + compScore;
-        // document.getElementById("results").innerHTML = "You Win!";
+        text.innerHTML = "You win!  <br/> You played " +userChoice + " and the computer played " + compChoice + " <br/>" + userScore + " : " + compScore;
       }   
       else if (userChoice == "rock" && compChoice == "paper") {
         compScore += 1; 
-        text.innerHTML = "You lose ... paper covers rock!   " + userScore + ":" + compScore;
+        text.innerHTML = "You lose... <br/> The computer chose paper, paper covers rock! <br/>" + userScore + " : " + compScore;
       }
       else if (userChoice == "paper" && compChoice == "scissors") {
         compScore += 1;
-        text.innerHTML = "You lose ... scissors cuts paper!   " + userScore + ":" + compScore;
+        text.innerHTML = "You lose... <br/> The computer chose scissors, scissors cuts paper!   <br/> " + userScore + " : " + compScore;
       }
       else if (userChoice == "paper" && compChoice == "rock") {
         userScore += 1;
-        text.innerHTML = "You win!   " + userScore + ":" + compScore;
-        //document.getElementById("results").innerHTML = "You lose. The rock busts the scissors :(";
+        text.innerHTML = "You win! <br/> You played " +userChocie + " and the computer played " + compChoice + "<br/>" + userScore + " : " + compScore;
       }
       else if (userChoice == "scissors" && compChoice == "rock") {
         compScore += 1;
-        text.innerHTML = "You lose. The rock busts the scissors   " + userScore + ":" + compScore;
-        //document.getElementById("results").innerHTML = "You lose. The rock busts the scissors :(";
+        text.innerHTML = "You lose... <br/> " +userChoice + " and the computer played " + compChoice + "<br/>" + userScore + " : " + compScore;
       }
       else if (userChoice == "scissors" && compChoice == "paper") {
         userScore += 1;
-        text.innerHTML = "You win! Scissors cut paper!   " + userScore + ":" + compScore;
-        //document.getElementById("results").innerHTML = "You win! Scissors cut paper!";
-
+        text.innerHTML = "You win! <br/> You played " +userChocie + " and the computer played " + compChoice + "<br/>" + userScore + " : " + compScore;
       }
     return text;
   }
@@ -107,6 +95,3 @@ function replay() {
   }  
   while (userInput2 == "yes");
 }
-
-// compPlay()
-// winner()
